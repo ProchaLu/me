@@ -1,7 +1,10 @@
 'use client';
 import Link from 'next/link';
 
-export default function Navbar() {
+export default function Navbar(props: {
+  isExplorerOpen: boolean;
+  setIsExplorerOpen: (isOpen: boolean) => void;
+}) {
   return (
     <nav className="flex items-center justify-between border-b-2 border-dark_border text-gray-700">
       <div className="flex">
@@ -9,7 +12,7 @@ export default function Navbar() {
           xmlns="http://www.w3.org/2000/svg"
           width="30"
           height="30"
-          fill="#3a718b"
+          fill="#0277bd"
           viewBox="0 0 48 48"
         >
           <path d="M44 11.11v25.78c0 1.27-.79 2.4-1.98 2.82l-8.82 4.14L34 33V15l-.8-10.85 8.82 4.14A2.98 2.98 0 0144 11.11z" />
@@ -78,20 +81,38 @@ export default function Navbar() {
 
       <div className="flex items-center">
         <div className="flex py-2 mx-1">
-          <button className="hover:bg-gray-300 p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 20 20"
-            >
-              <path
-                fill="currentColor"
-                d="M17.5 1.25H3.75L2.5 2.5v13.75l1.25 1.25H17.5l1.25-1.25V2.5L17.5 1.25zm-7.5 15H3.75V2.5H10v13.75zm7.5 0h-6.25V2.5h6.25v13.75z"
-              />
-              <path fill="currentColor" d="M3.75 2.5H10V16.25H3.75z" />
-            </svg>
+          <button
+            onClick={() => props.setIsExplorerOpen(!props.isExplorerOpen)}
+            className="hover:bg-gray-300 p-1"
+          >
+            {props.isExplorerOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M17.5 1.25H3.75L2.5 2.5v13.75l1.25 1.25H17.5l1.25-1.25V2.5L17.5 1.25zm-7.5 15H3.75V2.5H10v13.75zm7.5 0h-6.25V2.5h6.25v13.75z"
+                />
+                <path fill="currentColor" d="M3.75 2.5H10V16.25H3.75z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 20 20"
+              >
+                <path
+                  fill="currentColor"
+                  d="M17.5 1.25H3.75L2.5 2.5v13.75l1.25 1.25H17.5l1.25-1.25V2.5L17.5 1.25zm-7.5 15H3.75V2.5H10v13.75zm7.5 0h-6.25V2.5h6.25v13.75z"
+                />
+              </svg>
+            )}
           </button>
           <button className="hover:bg-gray-300 p-1">
             <svg
