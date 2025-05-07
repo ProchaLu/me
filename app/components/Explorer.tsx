@@ -22,6 +22,9 @@ export default function Explorer(props: { isExplorerOpen: boolean }) {
         <Link href="/" className="hover:bg-gray-200">
           Contact
         </Link>
+        <Link href="/passwordgame" className="hover:bg-gray-200">
+          Password game
+        </Link>
       </nav>
     </aside>
   );

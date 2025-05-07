@@ -85,9 +85,6 @@ export default function PasswordGame() {
     <div className="max-w-xl mx-auto mt-12 p-6 sm:p-8 flex flex-col gap-8 font-[family-name:var(--font-geist-sans)]">
       <h1 className="text-3xl font-bold text-center">Password Game</h1>
       <div className="flex flex-col gap-4">
-        Enter the password and press enter...
-      </div>
-      <div className="flex flex-col gap-4">
         password length: {password.length}
       </div>
       <form
@@ -131,7 +128,9 @@ export default function PasswordGame() {
           onClick={() => {
             localStorage.setItem('password', '');
             localStorage.setItem('level', '1');
-            router.refresh();
+            setPassword('');
+            setLevel(1);
+            router.push('/passwordgame');
           }}
           className="bg-red-500 text-white px-6 py-3 rounded-xl shadow-[0_4px_14px_rgba(0,0,0,0.25)] hover:shadow-[0_6px_20px_rgba(0,0,0,0.35)] active:scale-95 transition-all"
         >

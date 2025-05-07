@@ -1,7 +1,6 @@
 import './globals.css';
 import { Geist, Geist_Mono } from 'next/font/google';
-import Footer from './Footer';
-import Navigation from './Navigation';
+import VSCodeLayout from './VSCodeLayout';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -28,11 +27,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen max-h-screen`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased flex flex-col min-h-screen`}
       >
-        <Navigation />
-        <main className="flex-1 bg-white p-4 overflow-auto">{children}</main>
-        <Footer />
+        <VSCodeLayout>{children}</VSCodeLayout>
       </body>
     </html>
   );

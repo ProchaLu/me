@@ -1,6 +1,6 @@
 export default function Footer() {
   return (
-    <footer className="flex justify-between border-t-2 border-dark_border text-gray-500 text-sm select-none">
+    <footer className="flex justify-between h-6 border-t-2 border-dark_border text-gray-500 text-sm select-none">
       <div className="flex items-center cursor-pointer">
         <div className="relative p-1 px-2 h-full bg-blue-500 hover:bg-blue-800">
           <svg
@@ -18,7 +18,7 @@ export default function Footer() {
             />
           </svg>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center">
+        <div className="relative p-1 px-2 h-full  flex items-center hover:bg-blue-800 hover:text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -33,7 +33,7 @@ export default function Footer() {
           </svg>
           <span className="ml-1">main*</span>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center">
+        <div className="relative p-1 px-2 h-full  flex items-center hover:bg-blue-800 hover:text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
@@ -47,7 +47,7 @@ export default function Footer() {
             />
           </svg>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center">
+        <div className="relative p-1 px-2 h-full  flex items-center hover:bg-blue-800 hover:text-white">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -81,19 +81,19 @@ export default function Footer() {
         </div>
       </div>
       <div className="flex items-center cursor-pointer">
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center gap-1">
+        <div className="relative p-1 px-2 h-full flex items-center gap-1 hover:bg-blue-800 hover:text-white ">
           <span className="ml-1">Spaces: 2</span>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center gap-1">
+        <div className="relative p-1 px-2 h-full flex items-center gap-1 hover:bg-blue-800 hover:text-white ">
           <span className="ml-1">UTF-8</span>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center gap-1">
+        <div className="relative p-1 px-2 h-full flex items-center gap-1 hover:bg-blue-800 hover:text-white ">
           <span className="ml-1">TypeScript JSX</span>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center gap-1">
+        <div className="relative p-1 px-2 h-full flex items-center gap-1 hover:bg-blue-800 hover:text-white ">
           <span className="ml-1">Prettier</span>
         </div>
-        <div className="relative p-1 px-2 h-full hover:bg-blue-800 flex items-center gap-1">
+        <div className="relative p-1 px-2 h-full flex items-center gap-1 hover:bg-blue-800 hover:text-white ">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="18"
