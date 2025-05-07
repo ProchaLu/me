@@ -44,8 +44,6 @@ export default function Navbar(props: {
             </button>
           ))}
         </div>
-
-        {/* Hamburger Menu for Mobile */}
         <div className="ml-4 flex items-center lg:hidden px-4 py-2 hover:bg-gray-300">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -61,7 +59,6 @@ export default function Navbar(props: {
           </svg>
         </div>
       </div>
-
       <Link
         href="https://github.com/ProchaLu/me"
         className="hidden text-sm select-none sm:flex border-1 border-dark_border px-25 py-1 rounded-sm bg-gray-100 text-black"
@@ -78,7 +75,6 @@ export default function Navbar(props: {
         </svg>
         <span className="ml-1">me</span>
       </Link>
-
       <div className="flex items-center">
         <div className="flex py-2 mx-1">
           <button

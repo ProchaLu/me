@@ -15,15 +15,12 @@ export default function VSCodeLayout({
 
   return (
     <div className="flex flex-col min-h-screen">
-      {/* Navbar at the top */}
       <div className="w-full">
         <Navbar
           isExplorerOpen={isExplorerOpen}
           setIsExplorerOpen={setIsExplorerOpen}
         />
       </div>
-
-      {/* Sidebar + Explorer in row below navbar */}
       <div className="flex flex-1">
         <Sidebar />
         {isExplorerOpen && <Explorer isExplorerOpen={isExplorerOpen} />}

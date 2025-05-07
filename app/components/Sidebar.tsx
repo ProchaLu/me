@@ -77,8 +77,6 @@ export default function Sidebar() {
           </svg>
         </button>
       </div>
-
-      {/* Bottom buttons */}
       <div className="flex flex-col items-center space-y-2">
         <button className="hover:bg-blue-500 p-2 hover:text-white">
           <svg
