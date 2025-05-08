@@ -41,13 +41,13 @@ export default function Navbar(props: {
             <button
               key={`menu-${item}`}
               onClick={() => props.setIsTerminalOpen(!props.isTerminalOpen)}
-              className="px-2 py-1 hover:bg-gray-300 cursor-default"
+              className="px-2 py-1 hover:bg-blue-500 cursor-default"
             >
               {item}
             </button>
           ))}
         </div>
-        <div className="ml-4 flex items-center lg:hidden px-4 py-2 hover:bg-gray-300">
+        <div className="ml-4 flex items-center lg:hidden px-4 py-2 hover:bg-blue-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -113,8 +113,25 @@ export default function Navbar(props: {
               </svg>
             )}
           </button>
-          {props.isTerminalOpen ? (
-            <button className="hover:bg-gray-300 p-1">
+          <button
+            onClick={() => props.setIsTerminalOpen(!props.isTerminalOpen)}
+            className="hover:bg-gray-300 p-1"
+          >
+            {props.isTerminalOpen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
+                />
+                <path fill="currentColor" d="M3 8h11v5H3z" />
+              </svg>
+            ) : (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="20"
@@ -127,23 +144,8 @@ export default function Navbar(props: {
                   d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
                 />
               </svg>
-            </button>
-          ) : (
-            <button className="hover:bg-gray-300 p-1">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="20"
-                height="20"
-                fill="none"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fill="currentColor"
-                  d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
-                />
-              </svg>
-            </button>
-          )}
+            )}
+          </button>
           <button className="hover:bg-gray-300 p-1">
             <svg
               width="20"

@@ -1,7 +1,7 @@
 'use client';
 import Link from 'next/link';
 
-export default function Explorer() {
+export default function Search() {
   return (
     <aside className="w-64 bg-gray-100 border-r border-dark_border p-4 flex flex-col">
       <h2 className="text-sm font-semibold text-gray-600 mb-2">app</h2>

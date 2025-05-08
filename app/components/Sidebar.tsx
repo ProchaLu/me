@@ -1,10 +1,27 @@
 import React from 'react';
 
-export default function Sidebar() {
+type Props = {
+  setActiveExplorerTab: React.Dispatch<
+    React.SetStateAction<
+      | 'explorer'
+      | 'search'
+      | 'git'
+      | 'debug'
+      | 'extensions'
+      | 'user'
+      | 'settings'
+    >
+  >;
+};
+
+export default function Sidebar(props: Props) {
   return (
     <aside className="w-12 flex flex-col justify-between items-center py-2 space-y-2 border-r-2 border-dark_border">
       <div className="flex flex-col items-center space-y-2">
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('explorer')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             width="32"
             height="32"
@@ -18,7 +35,10 @@ export default function Sidebar() {
             />
           </svg>
         </button>
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('search')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -32,7 +52,10 @@ export default function Sidebar() {
             />
           </svg>
         </button>
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('git')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -46,7 +69,10 @@ export default function Sidebar() {
             />
           </svg>
         </button>
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('debug')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -60,7 +86,10 @@ export default function Sidebar() {
             />
           </svg>
         </button>
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('extensions')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -78,7 +107,10 @@ export default function Sidebar() {
         </button>
       </div>
       <div className="flex flex-col items-center space-y-2">
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('user')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
@@ -92,7 +124,10 @@ export default function Sidebar() {
             />
           </svg>
         </button>
-        <button className="hover:bg-blue-500 p-2 hover:text-white">
+        <button
+          onClick={() => props.setActiveExplorerTab('settings')}
+          className="hover:bg-blue-500 p-2 hover:text-white"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="32"
