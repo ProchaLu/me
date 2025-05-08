@@ -4,6 +4,8 @@ import Link from 'next/link';
 export default function Navbar(props: {
   isExplorerOpen: boolean;
   setIsExplorerOpen: (isOpen: boolean) => void;
+  isTerminalOpen: boolean;
+  setIsTerminalOpen: (isOpen: boolean) => void;
 }) {
   return (
     <nav className="flex items-center justify-between border-b-2 border-dark_border text-gray-700">
@@ -38,6 +40,7 @@ export default function Navbar(props: {
           ].map((item) => (
             <button
               key={`menu-${item}`}
+              onClick={() => props.setIsTerminalOpen(!props.isTerminalOpen)}
               className="px-2 py-1 hover:bg-gray-300 cursor-default"
             >
               {item}
@@ -110,20 +113,37 @@ export default function Navbar(props: {
               </svg>
             )}
           </button>
-          <button className="hover:bg-gray-300 p-1">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="20"
-              height="20"
-              fill="none"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill="currentColor"
-                d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
-              />
-            </svg>
-          </button>
+          {props.isTerminalOpen ? (
+            <button className="hover:bg-gray-300 p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
+                />
+              </svg>
+            </button>
+          ) : (
+            <button className="hover:bg-gray-300 p-1">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill="currentColor"
+                  d="M14 1H3L2 2v11l1 1h11l1-1V2l-1-1zm0 12H3V8h11v5zm0-6H3V2h11v5z"
+                />
+              </svg>
+            </button>
+          )}
           <button className="hover:bg-gray-300 p-1">
             <svg
               width="20"

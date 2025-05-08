@@ -5,6 +5,7 @@ import Explorer from './components/Explorer';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
+import Terminal from './components/Terminal';
 
 export default function VSCodeLayout({
   children,
@@ -12,6 +13,7 @@ export default function VSCodeLayout({
   children: React.ReactNode;
 }) {
   const [isExplorerOpen, setIsExplorerOpen] = useState(true);
+  const [isTerminalOpen, setIsTerminalOpen] = useState(false);
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -19,6 +21,8 @@ export default function VSCodeLayout({
         <Navbar
           isExplorerOpen={isExplorerOpen}
           setIsExplorerOpen={setIsExplorerOpen}
+          isTerminalOpen={isTerminalOpen}
+          setIsTerminalOpen={setIsTerminalOpen}
         />
       </div>
       <div className="flex flex-1">
@@ -28,6 +32,7 @@ export default function VSCodeLayout({
           {children}
         </main>
       </div>
+      {isTerminalOpen && <Terminal />}
       <Footer />
     </div>
   );
