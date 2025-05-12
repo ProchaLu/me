@@ -1,10 +1,10 @@
 'use client';
 
 import { useState } from 'react';
+import Sidebar from './components/ActivityBar';
 import Explorer from './components/Explorer';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
-import Sidebar from './components/Sidebar';
 import Terminal from './components/Terminal';
 
 export default function VSCodeLayout({

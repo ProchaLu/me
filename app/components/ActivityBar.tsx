@@ -14,7 +14,7 @@ type Props = {
   >;
 };
 
-export default function Sidebar(props: Props) {
+export default function ActivityBar(props: Props) {
   return (
     <aside className="w-12 flex flex-col justify-between items-center py-2 space-y-2 border-r-2 border-dark_border">
       <div className="flex flex-col items-center space-y-2">

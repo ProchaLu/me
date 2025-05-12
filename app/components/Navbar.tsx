@@ -9,7 +9,7 @@ export default function Navbar(props: {
 }) {
   return (
     <nav className="flex items-center justify-between border-b-2 border-dark_border text-gray-700">
-      <div className="flex">
+      <div className="flex items-center">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="30"
@@ -27,7 +27,7 @@ export default function Navbar(props: {
             d="M9 14.104L34 33v9.647c0 1.198-1.482 1.758-2.275.86L4.658 18.761a2 2 0 01.107-3.032s1.324-1.232 1.803-1.574c.736-.525 1.703-.585 2.432-.051z"
           />
         </svg>
-        <div className="hidden ml-2 lg:block">
+        <div className="hidden ml-2 lg:block h-10">
           {[
             'File',
             'Edit',
@@ -41,13 +41,13 @@ export default function Navbar(props: {
             <button
               key={`menu-${item}`}
               onClick={() => props.setIsTerminalOpen(!props.isTerminalOpen)}
-              className="px-2 py-1 hover:bg-blue-500 cursor-default"
+              className="h-full px-2 hover:bg-blue-500 cursor-default"
             >
               {item}
             </button>
           ))}
         </div>
-        <div className="ml-4 flex items-center lg:hidden px-4 py-2 hover:bg-blue-500">
+        <div className="ml-4 items-center lg:hidden px-4 py-2 hover:bg-blue-500">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -78,7 +78,7 @@ export default function Navbar(props: {
         </svg>
         <span className="ml-1">me</span>
       </Link>
-      <div className="flex items-center">
+      <div className="flex items-center h-10">
         <div className="flex py-2 mx-1">
           <button
             onClick={() => props.setIsExplorerOpen(!props.isExplorerOpen)}

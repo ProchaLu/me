@@ -5,7 +5,7 @@ export default function OpenSource() {
     <>
       <h1>Open Source Contributions</h1>
       <Card
-        title="chr-ge / react-column-select"
+        title="Expo React Native"
         description="React component to select options by transferring them from one column to another."
         tags={['react', 'select', 'form']}
         badge="Creator"
