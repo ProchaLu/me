@@ -1,4 +1,5 @@
 import AboutMe from './components/AboutMe';
+import ContactForm from './components/ContactForm';
 import OpenSource from './components/OpenSource';
 import TechStack from './components/TechStack';
 
@@ -8,6 +9,7 @@ export default function Home() {
       <AboutMe />
       <OpenSource />
       <TechStack />
+      <ContactForm />
     </>
   );
 }
