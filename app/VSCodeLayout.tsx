@@ -18,25 +18,24 @@ export default function VSCodeLayout({
     'explorer' | 'search' | 'git' | 'debug' | 'extensions' | 'user' | 'settings'
   >('explorer');
 
-  console.log('Active Explorer Tab:', activeExplorerTab);
+  console.log('needs fixing', activeExplorerTab);
 
   return (
-    <div className="flex flex-col min-h-screen">
-      <div className="w-full">
-        <Navbar
-          isExplorerOpen={isExplorerOpen}
-          setIsExplorerOpen={setIsExplorerOpen}
-          isTerminalOpen={isTerminalOpen}
-          setIsTerminalOpen={setIsTerminalOpen}
-        />
-      </div>
-      <div className="flex flex-1">
+    <div className="flex flex-col h-screen overflow-hidden">
+      <Navbar
+        isExplorerOpen={isExplorerOpen}
+        setIsExplorerOpen={setIsExplorerOpen}
+        isTerminalOpen={isTerminalOpen}
+        setIsTerminalOpen={setIsTerminalOpen}
+      />
+
+      <div className="flex flex-1 overflow-hidden">
         <Sidebar setActiveExplorerTab={setActiveExplorerTab} />
         {isExplorerOpen && <Explorer />}
-        <main className="flex-1 overflow-auto bg-white p-4 min-w-0">
-          {children}
-        </main>
+
+        <main className="flex-1 overflow-y-auto p-4 bg-white">{children}</main>
       </div>
+
       {isTerminalOpen && <Terminal />}
       <Footer />
     </div>
