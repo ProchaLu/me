@@ -75,98 +75,124 @@ export default function ContactForm() {
             });
             return;
           }
+          setErrors({
+            name: '',
+            email: '',
+            message: '',
+          });
+          // Handle form submission
+          console.log('Form submitted:', formData);
+          // Reset form data
+          setFormData({
+            name: '',
+            email: '',
+            message: '',
+          });
         }}
-        className="flex flex-col bg-white rounded-xl w-full"
+        className="flex flex-col gap-4 rounded-xl w-full"
       >
+        {/* Name */}
         <div>
-          <label
-            htmlFor="name"
-            className="block text-sm font-medium text-gray-800 mb-1"
-          >
-            Name
-          </label>
-          <input
-            id="name"
-            name="name"
-            placeholder="Your Name"
-            aria-describedby="name-error"
-            onChange={handleChange}
-            className={`w-full rounded-lg border px-4 py-2 text-sm outline-none transition placeholder:text-gray-400 ${
-              errors.name
-                ? 'border-red-500 focus:ring-2 focus:ring-red-300'
-                : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
-            }`}
-          />
-          <p
-            id="name-error"
-            className={`mt-1 min-h-[1.25rem] text-sm ${
-              errors.name ? 'text-red-500' : 'text-transparent'
-            }`}
-          >
-            {errors.name || ''}
-          </p>
+          <div className="relative z-0">
+            <input
+              id="name"
+              aria-describedby="name"
+              placeholder=" "
+              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${
+                errors.name
+                  ? 'border-red-600'
+                  : 'border-gray-300 focus:border-blue-600'
+              }`}
+              value={formData.email}
+              onChange={handleChange}
+              name="name"
+            />
+            <label
+              htmlFor="name"
+              className={`absolute text-m duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+        peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+        peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
+        ${errors.name ? 'text-red-600' : 'text-gray-500'}
+      `}
+            >
+              Name
+            </label>
+          </div>
+          {errors.name && (
+            <p id="name-help" className="mt-2 text-xs text-red-600">
+              {errors.name}
+            </p>
+          )}
+        </div>
+        {/* Email */}
+        <div>
+          <div className="relative z-0">
+            <input
+              id="email"
+              aria-describedby="email"
+              placeholder=" "
+              className={`block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${
+                errors.name
+                  ? 'border-red-600'
+                  : 'border-gray-300 focus:border-blue-600'
+              }`}
+              value={formData.email}
+              onChange={handleChange}
+              name="email"
+            />
+            <label
+              htmlFor="email"
+              className={`absolute text-m duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+        peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+        peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
+        ${errors.email ? 'text-red-600' : 'text-gray-500'}
+      `}
+            >
+              Email
+            </label>
+          </div>
+          {errors.email && (
+            <p id="email-error" className="mt-2 text-xs text-red-600">
+              {errors.email}
+            </p>
+          )}
         </div>
 
+        {/* Message */}
         <div>
-          <label
-            htmlFor="email"
-            className="block text-sm font-medium text-gray-800 mb-1"
-          >
-            Email
-          </label>
-          <input
-            id="email"
-            type="email"
-            name="email"
-            placeholder="Your Email"
-            aria-describedby="email-error"
-            onChange={handleChange}
-            className={`w-full rounded-lg border px-4 py-2 text-sm outline-none transition placeholder:text-gray-400 ${
-              errors.email
-                ? 'border-red-500 focus:ring-2 focus:ring-red-300'
-                : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
-            }`}
-          />
-          <p
-            id="email-error"
-            className={`mt-1 min-h-[1.25rem] text-sm ${
-              errors.email ? 'text-red-500' : 'text-transparent'
-            }`}
-          >
-            {errors.email || ''}
-          </p>
+          <div className="relative z-0">
+            <textarea
+              rows={4}
+              id="message-error"
+              aria-describedby="message-error-help"
+              className={`block py-2.5 px-0 w-full resize-none text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${
+                errors.message
+                  ? 'border-red-600'
+                  : 'border-gray-300 focus:border-blue-600'
+              }`}
+              value={formData.message}
+              onChange={handleChange}
+              name="message"
+            />
+            <label
+              htmlFor="message-error"
+              className={`absolute text-m duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
+        peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
+        peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
+        ${errors.message ? 'text-red-600' : 'text-gray-500'}
+      `}
+            >
+              Message
+            </label>
+          </div>
+          {errors.message && (
+            <p id="name-error-help" className="mt-2 text-xs text-red-600">
+              {errors.message}
+            </p>
+          )}
         </div>
 
-        <div>
-          <label
-            htmlFor="message"
-            className="block text-sm font-medium text-gray-800 mb-1"
-          >
-            Message
-          </label>
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Your Message"
-            rows={4}
-            aria-describedby="message-error"
-            onChange={handleChange}
-            className={`w-full rounded-lg border px-4 py-2 text-sm outline-none transition placeholder:text-gray-400 ${
-              errors.message
-                ? 'border-red-500 focus:ring-2 focus:ring-red-300'
-                : 'border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200'
-            }`}
-          />
-          <p
-            id="message-error"
-            className={`mt-1 min-h-[1.25rem] text-sm ${
-              errors.message ? 'text-red-500' : 'text-transparent'
-            }`}
-          >
-            {errors.message || ''}
-          </p>
-        </div>
-
+        {/* Submit Button */}
         <button className="group relative inline-flex h-[48px] items-center justify-center rounded-full bg-blue-500 px-6 font-medium text-white hover:bg-blue-600 transition">
           <span className="z-10 pr-2">Send</span>
           <div className="absolute right-1 inline-flex h-10 w-10 items-center justify-end rounded-full bg-neutral-700 transition-[width] group-hover:w-[calc(100%-8px)]">
