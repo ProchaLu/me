@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import toast from 'react-hot-toast';
 import { z } from 'zod';
 import IconHeader from './IconHeader';
 
@@ -45,7 +46,7 @@ export default function ContactForm() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="relative z-10 text-blue-500 drop-shadow-md"
+            className="relative z-10 text-blue-800 drop-shadow-md"
           >
             <path
               strokeLinecap="round"
@@ -62,8 +63,9 @@ export default function ContactForm() {
       </p>
 
       <form
-        onSubmit={(event) => {
+        onSubmit={async (event) => {
           event.preventDefault();
+
           const result = contactFormSchema.safeParse(formData);
 
           if (!result.success) {
@@ -80,9 +82,22 @@ export default function ContactForm() {
             email: '',
             message: '',
           });
-          // Handle form submission
-          console.log('Form submitted:', formData);
-          // Reset form data
+
+          const response = await fetch('https://formspree.io/f/manopnql', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Accept: 'application/json',
+            },
+            body: JSON.stringify(formData),
+          });
+
+          if (response.status === 200) {
+            toast.success('Message sent successfully!');
+          } else {
+            toast.error('Error sending message. Please try again later.');
+          }
+
           setFormData({
             name: '',
             email: '',
@@ -91,7 +106,6 @@ export default function ContactForm() {
         }}
         className="flex flex-col gap-4 rounded-xl w-full"
       >
-        {/* Name */}
         <div>
           <div className="relative z-0">
             <input
@@ -103,7 +117,7 @@ export default function ContactForm() {
                   ? 'border-red-600'
                   : 'border-gray-300 focus:border-blue-600'
               }`}
-              value={formData.email}
+              value={formData.name}
               onChange={handleChange}
               name="name"
             />
@@ -124,7 +138,6 @@ export default function ContactForm() {
             </p>
           )}
         </div>
-        {/* Email */}
         <div>
           <div className="relative z-0">
             <input
@@ -157,13 +170,12 @@ export default function ContactForm() {
             </p>
           )}
         </div>
-
-        {/* Message */}
         <div>
           <div className="relative z-0">
             <textarea
               rows={4}
-              id="message-error"
+              id="message"
+              placeholder=" "
               aria-describedby="message-error-help"
               className={`block py-2.5 px-0 w-full resize-none text-sm text-gray-900 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 peer ${
                 errors.message
@@ -175,7 +187,7 @@ export default function ContactForm() {
               name="message"
             />
             <label
-              htmlFor="message-error"
+              htmlFor="message"
               className={`absolute text-m duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0]
         peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0
         peer-focus:scale-75 peer-focus:-translate-y-6 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto
@@ -186,14 +198,12 @@ export default function ContactForm() {
             </label>
           </div>
           {errors.message && (
-            <p id="name-error-help" className="mt-2 text-xs text-red-600">
+            <p id="message-error-help" className="mt-2 text-xs text-red-600">
               {errors.message}
             </p>
           )}
         </div>
-
-        {/* Submit Button */}
-        <button className="group relative inline-flex h-[48px] items-center justify-center rounded-full bg-blue-500 px-6 font-medium text-white hover:bg-blue-600 transition">
+        <button className="group relative inline-flex h-[48px] items-center justify-center rounded-full bg-blue-500 px-6 font-medium text-white hover:bg-blue-600 transition cursor-pointer">
           <span className="z-10 pr-2">Send</span>
           <div className="absolute right-1 inline-flex h-10 w-10 items-center justify-end rounded-full bg-neutral-700 transition-[width] group-hover:w-[calc(100%-8px)]">
             <div className="mr-3 flex items-center justify-center">
