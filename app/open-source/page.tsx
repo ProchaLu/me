@@ -90,29 +90,6 @@ export default async function Home() {
 
   return (
     <main className="max-w-xl mx-auto p-4">
-      <h1 className="text-2xl font-bold">My GitHub Profile</h1>
-
-      <Image
-        src={data.user.avatarUrl}
-        alt="avatar"
-        width={120}
-        height={120}
-        className="rounded-full mt-4"
-      />
-      <h2 className="text-xl mt-2">I am {data.user.name}</h2>
-
-      <section className="mt-6">
-        <h3 className="text-lg font-semibold">📁 Repositories</h3>
-        <ul className="list-disc ml-5">
-          {data.user.repositories.edges.map((repo) => (
-            <li key={`repo-${repo.node.id}`}>
-              {repo.node.name} (
-              {repo.node.defaultBranchRef.name || 'no default branch'})
-            </li>
-          ))}
-        </ul>
-      </section>
-
       <section className="mt-6">
         <h3 className="text-lg font-semibold">🐞 Issues I Created</h3>
         <ul className="list-disc ml-5">
