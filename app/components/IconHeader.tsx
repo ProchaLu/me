@@ -1,11 +1,15 @@
 export default function IconHeader({
+  props,
   children,
 }: {
+  props: {
+    id: string;
+  };
   children: React.ReactNode;
 }) {
   return (
     <h2
-      id="contactme"
+      id={props.id}
       className="mb-6 flex items-center text-2xl font-semibold text-gray-900"
     >
       {children}
