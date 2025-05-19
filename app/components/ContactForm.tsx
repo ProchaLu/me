@@ -35,7 +35,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <IconHeader>
+      <IconHeader props={{ id: 'contact' }}>
         <span className="relative mr-3 flex h-10 w-10 items-center justify-center">
           <span className="absolute -inset-2 rounded-full bg-blue-500 blur-[16px] opacity-70" />
           <svg
