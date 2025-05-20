@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import IconHeaderSection from './IconHeaderSection';
 
 const roles = ['Fullstack', 'Frontend', 'Backend'];
 
@@ -41,7 +42,10 @@ export default function HeroSection() {
 
   return (
     <div className="flex h-screen w-full flex-col items-center justify-center text-center space-y-4 px-4">
-      <h1 className="relative inline-block text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-400">
+      <h1
+        id="hero"
+        className="relative inline-block text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-sky-500 via-cyan-500 to-emerald-400"
+      >
         Lukas Prochazka
         <span
           aria-hidden="true"

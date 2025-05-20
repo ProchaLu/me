@@ -39,7 +39,7 @@ export default function Explorer() {
           {
             type: 'file',
             name: 'HeroSection.tsx',
-            path: '/#hero-section',
+            path: '/#hero',
             isClickable: true,
           },
           {
