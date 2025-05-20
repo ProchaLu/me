@@ -17,6 +17,7 @@ export default function Explorer() {
         type: 'folder',
         name: '.vscode',
         isClickable: false,
+        isIgnored: true,
       },
       {
         type: 'folder',
@@ -37,8 +38,20 @@ export default function Explorer() {
           },
           {
             type: 'file',
+            name: 'TechStack.tsx',
+            path: '/#tech-stack',
+            isClickable: true,
+          },
+          {
+            type: 'file',
+            name: 'OpenSource.tsx',
+            path: '/#open-source',
+            isClickable: true,
+          },
+          {
+            type: 'file',
             name: 'ContactMe.tsx',
-            path: '#contactme',
+            path: '/#contact',
             isClickable: true,
           },
           {

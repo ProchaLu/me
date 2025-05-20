@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import toast from 'react-hot-toast';
 import { z } from 'zod';
-import IconHeader from './IconHeader';
+import IconHeaderSection from './IconHeaderSection';
 
 const contactFormSchema = z.object({
   name: z.string().min(1, 'Name is required'),
@@ -35,7 +35,7 @@ export default function ContactForm() {
 
   return (
     <>
-      <IconHeader props={{ id: 'contact' }}>
+      <IconHeaderSection props={{ id: 'contact' }}>
         <span className="relative mr-3 flex h-10 w-10 items-center justify-center">
           <span className="absolute -inset-2 rounded-full bg-blue-500 blur-[16px] opacity-70" />
           <svg
@@ -56,7 +56,7 @@ export default function ContactForm() {
           </svg>
         </span>
         Contact Me
-      </IconHeader>
+      </IconHeaderSection>
       <p className="mb-4 text-gray-600">
         If you have any questions or would like to get in touch, please fill out
         the form below. I’ll get back to you as soon as possible.
