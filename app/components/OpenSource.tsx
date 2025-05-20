@@ -1,6 +1,7 @@
 import { gql } from '@apollo/client';
 import { Card } from '../components/Card';
 import { getClient } from '../util/apolloClient';
+import { FeaturedContribution } from './FeaturedContribution';
 import IconHeaderSection from './IconHeaderSection';
 
 export type GitHubProfileType = {
@@ -43,6 +44,67 @@ export type GitHubProfileType = {
     };
   };
 };
+
+const openSourceContributions: Array<{
+  title: string;
+  repo: string;
+  date: string;
+  badge: 'open' | 'closed' | 'merged';
+  type: 'issue' | 'pr';
+  url: string;
+  description: string;
+}> = [
+  {
+    title: 'Remove unsupported providerImportSource option',
+    repo: 'vercel/next.js',
+    date: '2024-09-03',
+    badge: 'merged',
+    type: 'pr',
+    url: 'https://github.com/vercel/next.js/pull/69609',
+    description:
+      'Removed an outdated reference to the deprecated providerImportSource option in the Next.js MDX integration guide. This ensures alignment with the current MDX runtime behavior and prevents confusion when applying custom components via MDXProvider.',
+  },
+  {
+    title: 'Update @vercel/node in API Routes Vercel section in the Expo docs',
+    repo: 'expo/expo',
+    date: '2025-02-24',
+    badge: 'merged',
+    type: 'pr',
+    url: 'https://github.com/expo/expo/pull/35133',
+    description:
+      'Fixes outdated @vercel/node@3.0.11 in Expo docs. That version fails on Vercel with Node.js 22. The PR updates the package to the latest LTS-compatible version to ensure deployments work with Node.js 22. ',
+  },
+  {
+    title: '[template] Add cleanup prompt in reset-project script',
+    repo: 'expo/expo',
+    date: '2025-02-07',
+    badge: 'merged',
+    type: 'pr',
+    url: 'https://github.com/expo/expo/pull/34200',
+    description:
+      'Improved the reset-project script in Expo by adding a prompt to optionally delete the /app-example folder and the script reference in package.json, making cleanup easier and more user-friendly after a project reset.',
+  },
+  {
+    title: '[docs] Change API entry file in vercel.json from .js to .ts',
+    repo: 'expo/expo',
+    date: '2024-07-16',
+    badge: 'merged',
+    type: 'pr',
+    url: 'https://github.com/expo/expo/pull/30421',
+    description:
+      'Fixed Vercel API route config in docs by updating vercel.json to reference /api/index.ts instead of /api/index.js. This resolves deployment errors caused by mismatched file extensions.',
+  },
+  {
+    title: 'Share custom components in nested MDX files',
+    repo: 'kentcdodds/mdx-bundler',
+    date: '2024-03-28',
+    badge: 'merged',
+    type: 'pr',
+    url: 'https://github.com/kentcdodds/mdx-bundler/pull/227',
+    description:
+      'Added README section to guide sharing custom components in nested MDX files using MDXProvider. Fixes rendering issues by ensuring consistent component access throughout MDX hierarchy.',
+  },
+];
 
 export default async function OpenSource() {
   const { data } = await getClient().query<GitHubProfileType>({
@@ -129,12 +191,38 @@ export default async function OpenSource() {
         Open Source
       </IconHeaderSection>
       <p className="mb-4 text-gray-600">
-        I enjoy contributing to open source projects and collaborating with the
-        community. Below, you will find some highlights from my recent work,
-        including pull requests that improved developer experience and project
-        infrastructure, followed by a list of the last 20 issues and pull
-        requests I have opened on GitHub.
+        I enjoy contributing to open source projects and working together with
+        the developer community. Below are a few of my most meaningful
+        contributions, including improvements to developer experience and
+        project infrastructure. I often spot and report issues, open pull
+        requests, and look for ways to improve workflows or documentation.
       </p>
+      <p className="mb-4 text-gray-600">
+        I'm always open to new opportunities to collaborate, so if you have a
+        project in mind or something I could help with, feel free to get in
+        touch.
+      </p>
+      <h3 className="relative mb-4 mt-4 inline-block text-lg font-semibold text-gray-900">
+        <span className="relative z-10">Highlighted Contributions</span>
+        <span className="absolute bottom-0 left-0 h-1 w-full bg-red-500 opacity-40 rounded" />
+      </h3>
+      <p className="mb-4 text-gray-600">
+        These are some of the pull requests I'm most proud of. They reflect my
+        focus on improving developer experience, fixing subtle bugs, and
+        contributing to widely used tools and frameworks:
+      </p>
+      {openSourceContributions.map((contribution) => (
+        <FeaturedContribution
+          key={`contribution-${contribution.url}`}
+          title={contribution.title}
+          repo={contribution.repo}
+          date={contribution.date}
+          badge={contribution.badge}
+          type={contribution.type}
+          url={contribution.url}
+          description={contribution.description}
+        />
+      ))}
 
       <h3 className="relative mb-4 mt-4 inline-block text-lg font-semibold text-gray-900">
         <span className="relative z-10">Issues</span>
@@ -157,7 +245,7 @@ export default async function OpenSource() {
         <span className="relative z-10">PRs</span>
         <span className="absolute bottom-0 left-0 h-1 w-full bg-red-500 opacity-40 rounded" />
       </h3>
-      <div className="grid gap-6 grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))]">
+      <div className="grid mb-10 gap-6 grid-cols-[repeat(auto-fit,_minmax(320px,_1fr))]">
         {externalPRs.map((pr) => (
           <Card
             key={`pr-${pr.url}`}

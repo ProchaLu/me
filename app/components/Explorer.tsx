@@ -44,6 +44,12 @@ export default function Explorer() {
           },
           {
             type: 'file',
+            name: 'AboutMe.tsx',
+            path: '/#about-me',
+            isClickable: true,
+          },
+          {
+            type: 'file',
             name: 'TechStack.tsx',
             path: '/#tech-stack',
             isClickable: true,

@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import IconHeaderSection from './IconHeaderSection';
 
 const roles = ['Fullstack', 'Frontend', 'Backend'];
 
