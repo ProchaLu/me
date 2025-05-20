@@ -130,9 +130,12 @@ export default async function OpenSource() {
       </IconHeaderSection>
       <p className="mb-4 text-gray-600">
         I enjoy contributing to open source projects and collaborating with the
-        community. Below, you will find the latest 20 issues and pull requests I
-        have worked on.
+        community. Below, you will find some highlights from my recent work,
+        including pull requests that improved developer experience and project
+        infrastructure, followed by a list of the last 20 issues and pull
+        requests I have opened on GitHub.
       </p>
+
       <h3 className="relative mb-4 mt-4 inline-block text-lg font-semibold text-gray-900">
         <span className="relative z-10">Issues</span>
         <span className="absolute bottom-0 left-0 h-1 w-full bg-red-500 opacity-40 rounded" />

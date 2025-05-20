@@ -38,6 +38,12 @@ export default function Explorer() {
           },
           {
             type: 'file',
+            name: 'HeroSection.tsx',
+            path: '/#hero-section',
+            isClickable: true,
+          },
+          {
+            type: 'file',
             name: 'TechStack.tsx',
             path: '/#tech-stack',
             isClickable: true,
