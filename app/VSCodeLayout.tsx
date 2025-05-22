@@ -33,7 +33,9 @@ export default function VSCodeLayout({
         <Sidebar setActiveExplorerTab={setActiveExplorerTab} />
         {isExplorerOpen && <Explorer />}
 
-        <main className="flex-1 overflow-y-auto p-4">{children}</main>
+        <main className="flex-1 min-w-0 overflow-y-auto p-4">
+          <div className="max-w-[1200px] w-full mx-auto">{children}</div>
+        </main>
       </div>
 
       {isTerminalOpen && <Terminal />}

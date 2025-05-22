@@ -1,12 +1,12 @@
 import Image from 'next/image';
 import IconHeaderSection from './IconHeaderSection';
 
-export default function AboutMe() {
+export default function WorkExperience() {
   return (
     <>
-      <IconHeaderSection props={{ id: 'about-me' }}>
+      <IconHeaderSection props={{ id: 'work-experience' }}>
         <span className="relative mr-3 flex h-10 w-10 items-center justify-center">
-          <span className="absolute -inset-2 rounded-full bg-cyan-500 blur-[16px] opacity-70" />
+          <span className="absolute -inset-2 rounded-full bg-purple-500 blur-[16px] opacity-70" />
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"
@@ -25,7 +25,7 @@ export default function AboutMe() {
             <path d="M12 10v4" />
           </svg>
         </span>
-        About Me
+        Work Experience
       </IconHeaderSection>
       <section
         id="about"
