@@ -2,7 +2,7 @@ import AboutMe from './components/AboutMe';
 import ContactForm from './components/ContactForm';
 import HeroSection from './components/HeroSection';
 import OpenSource from './components/OpenSource';
-import TechStack from './components/Skills';
+import TechStack from './components/TechStack';
 import WorkExperience from './components/WorkExperience';
 
 export default function Home() {

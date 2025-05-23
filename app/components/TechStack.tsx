@@ -1,6 +1,6 @@
 import IconHeaderSection from './IconHeaderSection';
 
-export default function Skills() {
+export default function TechStack() {
   return (
     <>
       <IconHeaderSection props={{ id: 'tech-stack' }}>
@@ -29,13 +29,8 @@ export default function Skills() {
             <line x1="16" x2="16" y1="18" y2="22" />
           </svg>
         </span>
-        Skills
+        Tech Stack
       </IconHeaderSection>
-      <p className="mb-4 text-gray-600">
-        My core tech stack is built around modern JavaScript tooling. These are
-        the technologies I rely on to architect scalable applications, deliver
-        high-performance user experiences, and ship production-ready code.
-      </p>
     </>
   );
 }

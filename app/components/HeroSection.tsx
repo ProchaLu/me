@@ -1,7 +1,14 @@
 'use client';
 
 import { motion } from 'motion/react';
+import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
+
+// Dynamically import TagCloudWrapper to prevent server-side rendering
+const TagCloudWrapper = dynamic(() => import('./TagCloudWrapper'), {
+  ssr: false,
+  loading: () => null,
+});
 
 const roles = ['Fullstack', 'Frontend', 'Backend'];
 
@@ -47,6 +54,8 @@ export default function HeroSection() {
       transition={{ duration: 0.8, ease: 'easeOut' }}
       className="w-full h-screen relative overflow-hidden"
     >
+      <TagCloudWrapper />
+
       <div className="flex h-full w-full flex-col items-center justify-center text-center">
         <h1
           id="hero"
