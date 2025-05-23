@@ -46,28 +46,27 @@ export default function TagCloud({
   }
 
   useEffect(() => {
-    const len = logos.length;
-    const pos = [];
+    const position = [];
 
-    for (let i = 0; i < len; i++) {
-      const phi = Math.acos(-1 + (2 * i + 1) / len);
-      const theta = Math.sqrt((len + 1) * Math.PI) * phi;
-      pos.push({
+    for (let i = 0; i < logos.length; i++) {
+      const phi = Math.acos(-1 + (2 * i + 1) / logos.length);
+      const theta = Math.sqrt((logos.length + 1) * Math.PI) * phi;
+      position.push({
         x: (size * Math.cos(theta) * Math.sin(phi)) / 2,
         y: (size * Math.sin(theta) * Math.sin(phi)) / 2,
         z: (size * Math.cos(phi)) / 2,
         scale: 1,
       });
     }
-    positions.current = pos;
+    positions.current = position;
   }, [size]);
 
   useEffect(() => {
-    const el = containerRef.current;
-    if (!el) return;
+    const containerElement = containerRef.current;
+    if (!containerElement) return;
 
     const onMouseMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
+      const rect = containerElement.getBoundingClientRect();
       mouse.current.x = (e.clientX - (rect.left + rect.width / 2)) / 5;
       mouse.current.y = (e.clientY - (rect.top + rect.height / 2)) / 5;
     };
@@ -79,14 +78,14 @@ export default function TagCloud({
       mouse.current.active = false;
     };
 
-    el.addEventListener('mousemove', onMouseMove);
-    el.addEventListener('mouseover', onMouseOver);
-    el.addEventListener('mouseout', onMouseOut);
+    containerElement.addEventListener('mousemove', onMouseMove);
+    containerElement.addEventListener('mouseover', onMouseOver);
+    containerElement.addEventListener('mouseout', onMouseOut);
 
     return () => {
-      el.removeEventListener('mousemove', onMouseMove);
-      el.removeEventListener('mouseover', onMouseOver);
-      el.removeEventListener('mouseout', onMouseOut);
+      containerElement.removeEventListener('mousemove', onMouseMove);
+      containerElement.removeEventListener('mouseover', onMouseOver);
+      containerElement.removeEventListener('mouseout', onMouseOut);
     };
   }, []);
 
@@ -178,7 +177,9 @@ export default function TagCloud({
       {logos.map((icon, index) => (
         <span
           key={`logo-${icon.key}`}
-          ref={(el) => (itemsRef.current[index] = el)}
+          ref={(element) => {
+            itemsRef.current[index] = element;
+          }}
           aria-hidden="true"
           style={{
             position: 'absolute',
