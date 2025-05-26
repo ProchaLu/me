@@ -111,7 +111,7 @@ export default function TagCloud({
           Math.abs(my - mouseY0) < 1 ? mouseY0 : (my + mouseY0) / 2;
       }
 
-      const angleBasedCoordinates = [
+      const angleBasedCoordinates: [number, number, number, number] = [
         Math.sin(a * l),
         Math.cos(a * l),
         Math.sin(b * l),
