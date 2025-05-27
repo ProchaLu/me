@@ -4,9 +4,6 @@ const nextConfig: NextConfig = {
   experimental: {
     typedRoutes: true,
   },
-  images: {
-    domains: ['avatars.githubusercontent.com'],
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },
