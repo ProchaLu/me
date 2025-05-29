@@ -50,8 +50,8 @@ export default function Explorer() {
           },
           {
             type: 'file',
-            name: 'TechStack.tsx',
-            path: '/#tech-stack',
+            name: 'Skills.tsx',
+            path: '/#skills',
             isClickable: true,
           },
           {

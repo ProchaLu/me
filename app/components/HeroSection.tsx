@@ -4,7 +4,7 @@ import { motion } from 'motion/react';
 import dynamic from 'next/dynamic';
 import { useEffect, useState } from 'react';
 
-// Dynamically import TagCloudWrapper to prevent server-side rendering
+// Dynamically import TagCloudWrapper to prevent rendering on the server
 const TagCloudWrapper = dynamic(() => import('./TagCloudWrapper'), {
   ssr: false,
   loading: () => null,

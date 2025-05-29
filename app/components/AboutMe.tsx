@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import IconHeaderSection from './IconHeaderSection';
 
 export default function AboutMe() {
@@ -32,13 +33,31 @@ export default function AboutMe() {
         className="relative flex w-full flex-col lg:flex-row justify-around gap-8 mx-auto"
       >
         <div className="flex-1 lg:text-left">
-          I’m a software developer who loves bringing ideas to life through
-          code. Problem-solving and building seamless user experiences are what
-          drive me every day. Over the years, I’ve worked both independently and
-          with diverse teams, learning that great software comes from curiosity,
-          collaboration, and a passion for creating something meaningful.
-          Outside of coding, I enjoy sports and staying active. This helps me to
-          stay focused and energized.
+          <div>
+            I’m a software developer who loves bringing ideas to life through
+            code. Problem-solving and building seamless user experiences are
+            what drive me every day. Over the years, I’ve worked both
+            independently and with diverse teams, learning that great software
+            comes from curiosity, collaboration, and a passion for creating
+            something meaningful. Outside of coding, I enjoy sports and staying
+            active. This helps me to stay focused and energized.
+          </div>
+          <Link
+            className="group relative inline-flex h-[48px] w-full items-center justify-center rounded-full bg-cyan-300 px-6 font-medium text-black hover:bg-cyan-500 hover:text-white transition cursor-pointer"
+            href="/CV-lukas-prochazka.pdf"
+            download
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <svg
+              class="fill-current w-4 h-4 mr-2"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+            >
+              <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
+            </svg>
+            <span>Download</span>
+          </Link>
           <div className="mt-6">
             <h3 className="relative mb-4 mt-4 inline-block text-lg font-semibold text-gray-900">
               <span className="relative z-10">Languages</span>

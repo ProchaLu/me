@@ -73,7 +73,7 @@ export default function WorkExperience() {
         Work Experience
       </IconHeaderSection>
 
-      <section className="w-full px-4 py-10">
+      <section className="w-full px-4 py-5">
         <div className="relative mx-auto pl-8">
           {experiences.map((experience) => (
             <div
