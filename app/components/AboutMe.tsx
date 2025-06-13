@@ -43,20 +43,20 @@ export default function AboutMe() {
             active. This helps me to stay focused and energized.
           </div>
           <Link
-            className="group relative inline-flex h-[48px] w-full items-center justify-center rounded-full bg-cyan-300 px-6 font-medium text-black hover:bg-cyan-500 hover:text-white transition cursor-pointer"
+            className="group mt-2 relative inline-flex h-[48px] w-full items-center justify-center rounded-full bg-cyan-300 px-6 font-medium text-black hover:bg-cyan-500 hover:text-white transition cursor-pointer"
             href="/CV-lukas-prochazka.pdf"
             download
             target="_blank"
             rel="noopener noreferrer"
           >
             <svg
-              class="fill-current w-4 h-4 mr-2"
+              className="fill-current w-4 h-4 mr-2"
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 20 20"
             >
               <path d="M13 8V2H7v6H2l8 8 8-8h-5zM0 18h20v2H0v-2z" />
             </svg>
-            <span>Download</span>
+            <span>Download CV</span>
           </Link>
           <div className="mt-6">
             <h3 className="relative mb-4 mt-4 inline-block text-lg font-semibold text-gray-900">
