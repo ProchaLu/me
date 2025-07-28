@@ -28,7 +28,7 @@ export default function Explorer() {
             type: 'file',
             name: 'layout.tsx',
             path: '/layout',
-            isClickable: true,
+            isClickable: false,
           },
           {
             type: 'file',
@@ -68,17 +68,6 @@ export default function Explorer() {
           },
           {
             type: 'folder',
-            name: 'projects',
-            children: [
-              {
-                type: 'file',
-                name: 'page.tsx',
-                path: '/projects',
-              },
-            ],
-          },
-          {
-            type: 'folder',
             name: 'passwordgame',
             children: [
               {
@@ -86,10 +75,16 @@ export default function Explorer() {
                 name: 'page.tsx',
                 path: '/passwordgame',
               },
+            ],
+          },
+          {
+            type: 'folder',
+            name: 'blackjackgame',
+            children: [
               {
                 type: 'file',
-                name: 'README.md',
-                path: '/passwordgame/README',
+                name: 'page.tsx',
+                path: '/blackjackgame',
               },
             ],
           },
