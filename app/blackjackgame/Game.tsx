@@ -176,13 +176,13 @@ function HandView({
   function getResultText() {
     switch (hand.result) {
       case 'win':
-        return `Won $${hand.bet}`;
+        return ` Won $${hand.bet}`;
       case 'lose':
-        return `Lost $${hand.bet}`;
+        return ` Lost $${hand.bet}`;
       case 'push':
         return 'Push';
       case 'blackjack':
-        return `Blackjack! Won $${Math.floor(hand.bet * 1.5)}`;
+        return ` Blackjack! Won $${Math.floor(hand.bet * 1.5)}`;
       default:
         return null;
     }
@@ -207,7 +207,7 @@ function HandView({
         <span className="font-bold">
           {isDealer ? 'Dealer' : 'Player'}: {score}
         </span>
-        {!isDealer && <span className="font-bold">Bet: ${hand.bet}</span>}
+        {!isDealer && <span className="font-bold"> Bet: ${hand.bet}</span>}
         {hand.isComplete && hand.result && (
           <span
             className={`font-bold ${isWinning ? 'text-green-600' : isLosing ? 'text-red-600' : 'text-gray-600'}`}
